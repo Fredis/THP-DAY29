@@ -1,17 +1,13 @@
 class HomeController < ApplicationController
   
   def index
-
-  	#service_scrapping = ServiceScrapping.new('https://coinmarketcap.com/all/views/all/')
-  	#service_scrapping.perform
+    if Currency.first == nil
+  	  service_scrapping = ServiceScrapping.new('https://coinmarketcap.com/all/views/all/')
+      service_scrapping.perform
+    end 
+    @currency = Currency.find(params[:currency_id]) unless params[:currency_id] == nil 
   end
 
-  def currency_price_display
-
-  	render 'index'
-		puts "/////"
-		@currency_name = Currency.find(params[:currency_id])
-		puts @currency_name.currency_name
-  end
+  
 
 end

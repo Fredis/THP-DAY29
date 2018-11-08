@@ -15,10 +15,10 @@
 	<br />
 	<br />
 
+  <% if @currency != nil %>
 
-		<%= @currency_name %>
-	<% if @currency_name != nil %>
-		<%= @currency_name.currency_name %> : <%= @currency_name.currency_price %>
-	<% end %>
+  <%= @currency.currency_name %> : <%= @currency.currency_value %>
+
+  <% end %>
 
 <% end %>
