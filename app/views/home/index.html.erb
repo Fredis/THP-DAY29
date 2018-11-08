@@ -2,13 +2,5 @@
 
 <p>Please choose your currency :</p>
 
-<%= form_for :currency_form do |f| %>
-
-	Currency.first.currency_name %>
-
-	<%= f.collection_select :currency_price, Currency.all %>
-
-	<%= f.submit "Get the price!" %>
-
-<% end %>
+<%= Currency.all %>
 
