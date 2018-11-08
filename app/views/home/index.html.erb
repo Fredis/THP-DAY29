@@ -2,5 +2,23 @@
 
 <p>Please choose your currency :</p>
 
-<%= Currency.all %>
+<%= form_for :currency_form do |f| %>
 
+	<select name="currency_id">
+		<%= Currency.all.each do |element| %>
+		<option value="<%= element.id %>"><%= element.currency_name %></option>
+		<% end %>
+	</select>
+
+	<%= f.submit "Get the price!" %>
+
+	<br />
+	<br />
+
+
+		<%= @currency_name %>
+	<% if @currency_name != nil %>
+		<%= @currency_name.currency_name %> : <%= @currency_name.currency_price %>
+	<% end %>
+
+<% end %>
